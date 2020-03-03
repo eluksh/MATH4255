@@ -1,0 +1,230 @@
+% Homework 3
+% Emily Lukshin
+% MATH 4255 Spring 2020
+% February 26 2020
+
+% Preamble
+
+\documentclass{report}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\setlength{\headheight}{23pt}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{yfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[colorlinks]{hyperref}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\begin{document}
+
+% Header
+
+\fancyhead{}
+\fancyfoot{}
+\lhead{\large \textbf{Math 4255/5255}}
+\chead{\Large \textbf{Homework 3}}
+\rhead{\large \textbf{Emily Lukshin}}
+
+% Custom Commands
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\<}{\left\langle}
+\renewcommand{\>}{\right\rangle}
+\renewcommand{\Re}[1]{\text{Re}\ #1}
+\renewcommand{\Im}[1]{\text{Im}\ #1}
+\renewcommand{\mod}[1]{(\operatorname{mod}#1)}
+
+% Document
+\noindent
+{\bf Please submit your solutions (both tex and PDF files) to WyoCourses; and hand in a printed version in class. If you are a graduate student, please also finish Problem 6 and 7.}
+
+\medskip
+
+
+The following problems are mainly selected from Ross's book. 
+
+\begin{enumerate}
+% Exercise 1
+\item Ninety-eight percent of all babies survive delivery.
+However, 15 percent of all births involve Cesarean
+(C) sections, and when a C section is performed,
+the baby survives 96 percent of the time. If a randomly
+chosen pregnant woman does not have a
+C section, what is the probability that her baby
+survives?
+
+{\bf Solution:} Let $C$ be the event of a C section and $S$ be the event of survival. From the information given, we know $P(S) = .98$, $P(C)=.15$, $P(S\vert C)=.96$, $P(C^c)=1-P(C)=1-.15=.85$ and we are trying to find  $P(S \vert C^c)$.
+\begin{align*}
+P(S\vert C^c) &= \frac{P(SC^c)}{P(C^c)} \\
+&= \frac{P(S)-P(SC)}{P(C^c)} \\
+&= \frac{P(S) - P(S\vert C)P(C)}{P(C^c)} \\
+&=\frac{0.98-(0.96)(0.15)}{.85} \\
+&=\frac{.836}{.85} \\
+&\approx .9835
+\end{align*}
+
+% Exercise 2
+\item A total of 46 percent of the voters in a certain city
+classify themselves as Independents, whereas 30
+percent classify themselves as Liberals and 24 percent
+say that they are Conservatives. In a recent
+local election, 35 percent of the Independents, 62
+percent of the Liberals, and 58 percent of the Conservatives
+voted. A voter is chosen at random.
+
+Given that this person voted in the local election,
+what is the probability that he or she is
+\begin{enumerate}
+\item an Independent?
+\item a Liberal?
+\item a Conservative?
+\item What fraction of voters participated in the
+local election?
+\end{enumerate}
+
+{\bf Solution:}
+Let $V$ be the event that a voter voted in the local election, $I$ be the event that a voter is Independent, $L$ be the event that a voter is Liberal, and $C$ be the event that a voter is Conservative. From the information given, we know $P(I) = .46$, $P(L) = .3$, $P(C)=.24$, and $P(V\vert I) = .35$, $ P(V\vert L) = .62$, $P(V\vert C)=.58$. The problem is asking (a) $P(I\vert V)=?$, (b) $P(L\vert V)=?$, (c)$P(C\vert V)=?$, and (d) $P(V)=?$. Because this information will be needed to solve the other parts, I will start by solving (d).\smallbreak
+\setlength{\parindent}{5pt}(d)
+\setlength{\parindent}{0pt}
+\begin{align*}
+    P(V) &= P(V\vert I)P(I)+P(V\vert L)P(L)+P(V\vert C)P(C) \\
+    &= (.35)(.46)+(.62)(.3)+(.58)(.24) \\
+    &= .161 + .186 + .1392 \\
+    &= .4862
+\end{align*}
+\begin{enumerate}
+    \item 
+        \begin{align*}
+            P(I\vert V) &= \frac{P(IV)}{P(V)} \\
+            &= \frac{P(V\vert I)P(I)}{P(V)} \\
+            &= \frac{(.35)(.46)}{.4862} \\
+            &= \frac{.161}{.4862} \\
+            &\approx .3311
+        \end{align*}
+    \item
+        \begin{align*}
+            P(L\vert V) &= \frac{P(LV)}{P(V)} \\
+            &= \frac{P(V\vert L)P(L)}{P(V)} \\
+            &= \frac{(.62)(.3)}{.4862} \\
+            &= \frac{.186}{.4862} \\
+            &\approx .3826
+        \end{align*}
+    \item 
+        \begin{align*}
+            P(C\vert V) &= \frac{P(CV)}{P(V)} \\
+            &= \frac{P(V\vert C)P(C)}{P(V)} \\
+            &= \frac{(.58)(.24)}{.4862} \\
+            &= \frac{.1392}{.4862} \\
+            &\approx .2863
+        \end{align*}
+\end{enumerate} 
+\smallskip
+
+% Exercise 3
+\item A total of 48 percent of the women and 37 percent
+of the men that took a certain “quit smoking” class
+remained nonsmokers for at least one year after
+completing the class. These people then attended
+a success party at the end of a year. If 62 percent
+of the original class was male, what percentage of the original class attended
+the party?
+
+{\bf Solution:} Let $S$ be the event that a person in the class attends the success party, $M$ be the event that a person in the class is male, and $F$ be the event that a person in the class is female. From the information given, we know $P(S\vert F)=.48$, $P(S\vert M)=.37$, $P(M)=.62$ and we are trying to find $P(S) = ?$. Because $M$ and $F$ are mutually exclusive, we also know $P(F)=1-P(M)=1-.62=.38$.
+\begin{align*}
+    P(S) &= P(S\vert M)P(M)+P(S\vert F)P(F) \\
+    &=(.37)(.62)+(.48)(.38) \\
+    &=.2294+.1824 \\
+    &=.4118
+\end{align*}
+
+
+% Exercise 4
+\item With probability .6, the present was hidden by
+mom; with probability .4, it was hidden by dad.
+When mom hides the present, she hides it upstairs
+70 percent of the time and downstairs 30 percent
+of the time. Dad is equally likely to hide it upstairs
+or downstairs.
+\begin{enumerate}
+\item What is the probability that the present is
+upstairs?
+\item Given that it is downstairs, what is the probability
+it was hidden by dad?
+\end{enumerate}
+
+{\bf Solution:} Let $M$ be the event that mom hid the present, $D$ be the event that dad hid the present, $U$ be the event that the present is hidden upstairs, and $N$ be the event that present is hidden downstairs. From the information given, we know $P(M)=.6$, $P(D)=.4$, $P(U\vert M)=.7$, $P(N\vert M)=.3$, $P(U\vert D) = .5$, and $P(N\vert D) =.5$. The problem is asking to find (a) $P(U)=?$ and (b) $P(D\vert N)=?$.
+\begin{enumerate}
+    \item 
+        \begin{align*}
+            P(U) &= P(U\vert M)P(M)+P(U\vert D)P(D) \\
+            &= (.7)(.6)+(.5)(.4) \\
+            &= .42+.2 \\
+            &= .62
+        \end{align*}
+    \item Using the value we found for $P(U)$ in (a) and knowing that $U$ and $N$ are mutually exclusive, we know $P(N)=1-P(U)=1-.62=.38$
+        \begin{align*}
+            P(D\vert N) &= \frac{P(DN)}{P(N)} \\
+            &=\frac{P(N\vert D) P(D)}{P(N)} \\
+            &=\frac{(.5)(.4)}{.38} \\
+            &= \frac{.2}{.38} \\
+            &\approx .5263
+        \end{align*}
+\end{enumerate}
+
+% Exercise 5
+\item A simplified model for the movement of the price
+of a stock supposes that on each day the stock’s
+price either moves up 1 unit with probability p or
+moves down 1 unit with probability $1 - p$. The
+changes on different days are assumed to be independent.
+\begin{enumerate}
+\item What is the probability that after 2 days the
+stock will be at its original price?
+\item What is the probability that after 3 days the
+stock’s price will have increased by 1 unit?
+\item Given that after 3 days the stock’s price has
+increased by 1 unit, what is the probability
+that it went up on the first day?
+\end{enumerate}
+
+{\bf Solution:} Let $E_1$ be the event that the price increases by 1 unit on day 1, $E_2$ be the event that the price increases by 1 unit on day 2 and $E_3$ be the event that the price increases by 1 unit on day 3. Therefore, $E_1^c$, $E_2^c$ and $E_3^c$ are the events that the price decreases by 1 unit on their respective day. From the information given in the problem, we know $P(E_1)$, $P(E_2)$, $P(E_3)$ are equal to $p$, and $P(E_1^c)$, $P(E_2^c)$, and $P(E_3^c)$ are equal to $(p-1)$.
+\begin{enumerate}
+    \item For the stock to be at its original price after two days, the price has to  increase on day 1 then decrease on day 2 $(E_1E_2^c)$, OR decrease on day 1 and increase on day 2 $(E_1^cE_2)$. Therefore, the probability is given as
+        \begin{align*}
+            P(E_1E_2^c\cup E_1^cE_2)&= P(E_1E_2^c)+P(E_1^cE_2)\\
+            &=P(E_1)P(E_2^c)+P(E_1^c)P(E_2) \\
+            &=p(1-p)+p(1-p) \\
+            &=2p(1-p)
+        \end{align*}
+    \item For the price to increase by 1 unit after 3 days, the price has to increase on both day 1 and 2 then decrease on day 3 $(E_1E_2E_3^c)$, OR increase on day 1 then decrease on day 2 then increase on day 3$(E_1E_2^cE_3)$, OR decrease on day 1 then increase on both day 2 and 3 $(E_1^cE_2E_3)$. Therefore, the probability is given as
+        \begin{align*}
+            P(E_1E_2E_3^c\cup E_1E_2^cE_3 \cup E_1^cE_2E_3) &= P(E_1E_2E_3^c)+P(E_1E_2^cE_3)+P(E_1^cE_2E_3)\\
+            &=P(E_1)P(E_2)P(E_3^c)+P(E_1)P(E_2^c)P(E_3)+P(E_1^c)P(E_2)P(E_3) \\
+            &=p\cdot p (p-1)+p\cdot p (p-1)+p\cdot p (p-1) \\ 
+            &=3p^2(p-1)
+        \end{align*}
+    \item Let $U$ be the event that the stock's price has increased by 1 unit after 3 days. From part (b), we know $P(U)=3p^2(1-p)$.
+        \begin{align*}
+            P(E_1\vert U)&=\frac{P(E_1U)}{P(U)} \\
+            &=\frac{P(E_1E_2^cE_3)+P(E_1E_2E_3^c)}{P(U)} \\
+            &=\frac{p\cdot p(1-p)+p\cdot p(1-p)}{3p^2(1-p)} \\
+            &=\frac{2p^2(1-p)}{3^2(1-p)} \\
+            &=\frac{2}{3}
+        \end{align*}
+\end{enumerate}
+	
+\end{enumerate}
+
+\end{document}​
