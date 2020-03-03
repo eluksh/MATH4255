@@ -1,0 +1,148 @@
+%Homework2
+%Emily Lukshin
+%MATH 4255 Spring 2020
+%February 17 2020
+
+%Preamble
+
+\documentclass{report}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\setlength{\headheight}{23pt}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{yfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[colorlinks]{hyperref}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\begin{document}
+
+%Header
+
+\fancyhead{}
+\fancyfoot{}
+\lhead{\large \textbf{Math 4255/5255}}
+\chead{\Large \textbf{Homework 2}}
+\rhead{\large \textbf{Emily Lukshin}}
+
+%Custom Commands
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\<}{\left\langle}
+\renewcommand{\>}{\right\rangle}
+\renewcommand{\Re}[1]{\text{Re}\ #1}
+\renewcommand{\Im}[1]{\text{Im}\ #1}
+\renewcommand{\mod}[1]{(\operatorname{mod}#1)}
+
+%Document
+
+\noindent
+{\bf Please submit your solutions (both tex and PDF files) to WyoCourses; and hand in a printed version in class. If you are a graduate student, please also finish Problem 5 and 6.}
+
+\medskip
+
+The following problems are mainly selected from Ross's book. 
+
+\begin{enumerate}
+
+%EXERCISE 1
+
+\item Let $E$ and $F$ be two events. Prove that
+\[
+  {P}(E\cap F^c)=P(E)-P(E\cap F). 
+\]
+
+{\bf Solution:}\\
+    $E\cap F$ and $E\cap F^c$ are mutually exclusive, therefore
+    $$P((E\cap F) \cup (E \cap F^c))=P(E\cap F)+P(E\cap F^c)$$
+    We know
+    $$(E\cap F)\cup(E\cap F^c)=E(F\cup F^c)\quad \text{By the distributive laws}$$
+    $$=E(1)$$
+    $$=E$$
+    Therefore,
+    $$P(E)=P((E\cap F)\cup(E\cap F^c))$$
+    $$=P(E\cap F)+P(E\cap F^c)$$
+    By rearranging, we get
+    $$P(E\cap F^c)=P(E)-P(E\cap F)$$
+
+%EXERCISE 2
+
+\item Suppose that $A$ and $B$ are mutually exclusive events for with $P(A)=0.3$ and $P(B)=0.5$. What is the probability that
+\begin{enumerate}
+	\item either $A$ or $B$ occurs?
+	\item $A$ occurs but not $B$?
+	\item both $A$ and $B$ occur. 
+\end{enumerate}
+
+{\bf Solution:}
+\begin{enumerate}
+    \item $(A\cup B)=P(A)+P(B)=0.3+0.5=0.8$
+    \item $P(A)=0.3$, because $A$ and $B$ are mutually exclusive, the occurrence of $A$ means that there is no occurrence of $B$.
+    \item $P(A\cap B)=P(\emptyset)=0$, because $A$ and $B$ are mutually exclusive, $A$ and $B$ cannot occur at the same time.
+\end{enumerate}
+
+%EXERCISE 3
+
+\item A pair of fair dice are rolled.
+\begin{enumerate}
+    \item Describe the outcome of the experiment and the sample space S by using vectors (in this case, a vector has two coordinates).
+    \item Compute the number of elements of the sample space S.
+    \item What is the probability to get a double 6?
+    \item What is the probability that the second die lands on a higher value than does the first?
+
+\end{enumerate}
+
+{\bf Solution:}
+
+\begin{enumerate}
+    \item $S=\{(i,j):i,j=1,2,3,4,5,6\}$, where the outcome $(i,j)$ is said to occur if $i$ appears on the leftmost die and $j$ on the other die.
+    \item $6^2=36$
+    \item $\frac{1}{6^2}=\frac{1}{36}$
+    \item $\frac{{6 \choose 2}}{6^2}=\frac{15}{36}=\frac{5}{12}$
+\end{enumerate}
+	
+%EXERCISE 4
+	
+\item Prove \emph{Bonferroni's inequality}, namely, 
+\[
+  P(EF)\geq P(E)+P(F)-1.
+\]
+
+{\bf Solution:}\\
+From Axiom 1 of probability, we know
+$$P(E\cup F)\leq 1$$
+$$\Longrightarrow P(E)+P(F)-P(E\cap F)\leq 1$$
+$$\Longrightarrow P(E)+P(F)-1\leq P(E\cap F)$$
+By rearranging, we get
+$$P(E\cap F)\geq P(E)+P(F)-1$$
+	
+\end{enumerate}
+
+
+
+\end{document}​\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{hw-2}
+\author{elukshin }
+\date{February 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\end{document}
