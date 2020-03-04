@@ -1,0 +1,208 @@
+% Homework 4
+% Emily Lukshin
+% MATH 4255 Spring 2020
+% March 3 2020
+
+% Preamble 
+
+\documentclass{report}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\setlength{\headheight}{23pt}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{yfonts}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[colorlinks]{hyperref}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\begin{document}
+
+% Header
+
+\fancyhead{}
+\fancyfoot{}
+\lhead{\large \textbf{Math 4255/5255}}
+\chead{\Large \textbf{Homework 4}}
+\rhead{\large \textbf{Emily Lukshin}}
+
+% Custom Commands 
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\<}{\left\langle}
+\renewcommand{\>}{\right\rangle}
+\renewcommand{\Re}[1]{\text{Re}\ #1}
+\renewcommand{\Im}[1]{\text{Im}\ #1}
+\renewcommand{\mod}[1]{(\operatorname{mod}#1)}
+
+% Document
+
+\noindent
+{\bf Please submit your solutions (both tex and PDF files) to WyoCourses; and hand in a printed version in class. If you are a graduate student, please also finish Problem 6.}
+
+\medskip
+
+
+The following problems are mainly selected from Ross's book. 
+
+\begin{enumerate}
+
+% EXERCISE 1
+
+\item Let $X$ be the winnings of a gambler. Let $p(i)=P(X=i)$ and suppose that
+\[
+  p(0)=1/3; p(1)=p(-1)=13/55; p(2)=p(-2)=1/11; p(3)=p(-3)=1/165.
+\]
+Compute the conditional probability that the gambler wins $i$, $i=1,2,3$, given that he wins a positive amount. 
+
+{\bf Solution:} Let E be the event that the gambler wins a positive amount of money.
+\begin{align*}
+    P(E) &= P(1)+P(2)+P(3) \\
+    &=13/55+1/11+1/165 \\
+    &=55/165 \\
+    &=1/3 \\
+    P(X=i\vert E) &= \frac{p(i)}{P(E)} \\
+    &=\frac{p(i)}{\frac{1}{3}} \\
+    &=3p(i)
+\end{align*}
+
+% EXERCISE 2
+
+\item Four buses carrying $148$ students from the same
+school arrive at a football stadium. The buses carry, respectively,
+$40, 33, 25$, and $50$ students. One of the students is
+randomly selected. Let X denote the number of students
+who were on the bus carrying the randomly selected student.
+One of the $4$ bus drivers is also randomly selected.
+Let Y denote the number of students on her bus.
+
+\begin{enumerate}
+	\item Which of $E[X]$ or $E[Y]$ do you think is larger? Why?
+	\item Compute $E[X]$ and $E[Y]$. 
+\end{enumerate}
+
+{\bf Solution:}
+\begin{enumerate}
+    \item $E[X] > E[Y]$, because there are 148 students to choose from, but only 4 bus drivers.
+    \item 
+        \begin{align*}
+            E[X]&=40\times 40/148 + 33 \times 33/148 + 25\times 25/148 + 50 \times 50/148 \\
+            &= 5814/148 \\
+            &\approx 39.28 \\
+            E[Y]&=40\times1/4+33\times1/4+25\times1/4+50\times 1/4 \\
+            &=148/4 \\
+            &=37
+        \end{align*}
+\end{enumerate}
+
+% EXERCISE 3
+
+\item Prostate cancer is the most common type of cancer found in males.
+As an indicator of whether a male has prostate cancer, doctors often perform a
+test that measures the level of the prostate-specific antigen (PSA) that is produced
+only by the prostate gland. Although PSA levels are indicative of cancer, the test is
+notoriously unreliable. Indeed, the probability that a noncancerous man will have
+an elevated PSA level is approximately 0:135, increasing to approximately $0:268$ if
+the man does have cancer. If, on the basis of other factors, a physician is $70$ percent
+certain that a male has prostate cancer, what is the conditional probability that he
+has the cancer given that
+\begin{enumerate}
+	\item the test indicated an elevated PSA level?
+	\item the test did not indicate an elevated PSA level?
+\end{enumerate}
+
+Denote by $C$ the event that the patient has cancer and by $E$ the event that
+the test indicates and elevated PSA level.
+
+{\bf Solution:} From the information given, we know $P(E\vert C^c)=.135$, $P(E\vert C) =.268$, $P(C)=.7$, and $P(C^c)=1-.7=.3$. The problem is asking (a)$P(C\vert E)=?$ and (b)$P(C\vert E^c)=?$
+\begin{enumerate}
+    \item 
+    \begin{align*}
+        P(C\vert E) &= \frac{P(CE)}{P(E)} \\
+        &=\frac{P(E^c\vert C)P(C)}{P(E\vert C)P(C)+P(E\vert C^c)P(C^c)} \\
+        &=\frac{(0.268)(0.7)}{(0.268)(0.7)+(0.135)(0.3)} \\
+        &=\frac{0.1876}{0.2281}\\
+        &\approx 0.8224
+    \end{align*}
+    \item
+    \begin{align*}
+        P(C\vert E^c) &= \frac{P(CE^c)}{P(E^c)} \\
+        &=\frac{P(E^c\vert C)P(C)}{P(E^c\vert C)P(C)+P(E^c\vert C^c)P(C^c)} \\
+        &=\frac{(1-0.268)(0.7)}{(1-0.268)(0.7)+(0.135)(0.3)} \\
+        &=\frac{0.5124}{0.7719} \\
+        &\approx 0.6638
+    \end{align*}
+\end{enumerate}
+
+% EXERCISE 4
+
+\item Approximately $80,000$ marriages took place in the
+state of New York last year. Estimate the probability that
+for at least one of these couples,
+\begin{enumerate}
+	\item both partners were born on April 30;
+	\item both partners celebrated their birthday on the same
+	day of the year.
+\end{enumerate}
+State your assumptions.
+
+{\bf Solution:}
+\begin{enumerate}
+    \item We are assuming Poisson distribution to approximate since the probability that both partners were born on April 30, $p=(1/365)(1/365)\approx 7.506\times 10^{-6}$, is very small and $n=80,000$.
+    $$ \lambda = np = (80000) (7.506\times10^{-6})\approx 0.6$$
+    Let $X$ be a random variable of the number of couples with both partners born on April 30
+    \begin{align*}
+        P\{ X\geq 1\} &= 1-P\{ X=0\} \\
+        &=1-e^{-\lambda} \frac{\lambda^0}{0!}\\
+        &=1-e^{-0.6} \\
+        &\approx0.4512 
+    \end{align*}
+   \item We are assuming Poisson distribution to approximate since the probability that both partners have the same birthday, $p=(1/365)\approx 0.0027$, is small and $n=80,000$.
+   $$ \lambda = np = (80000)(0.0027)\approx 219.178$$
+    Let $X$ be a random variable of the number of couples with both partners born on April 30
+    \begin{align*}
+        P\{ X\geq 1\} &= 1-P\{ X=0\} \\
+        &=1-e^{-\lambda} \frac{\lambda^0}{0!}\\
+        &=1-e^{-219.178} \\
+        &\approx 1
+    \end{align*}
+    
+\end{enumerate}
+
+% EXERCISE 5
+
+\item Consider n independent trials, each of which results
+in one of the outcomes $1, \cdots, k$ with respective probabilities
+$p_1,\cdots, p_k$, 
+$\sum_{i=1}^{k}p_k=1$. Show that if all the $p_i$ are
+small, then the probability that no trial outcome occurs
+more than once is approximately equal to $\exp(-n(n-1)\sum_i p_i^2/2)$. 
+
+{\bf Solution:} The probability, $p$, that 2 of the trial outcomes will be the same is
+$$p=\sum_{i=1}^{k}p_i^2$$
+Of n trials, the possibility that 2 of the outcomes are the same is
+$${n \choose 2} =\frac{n(n-1)}{2}$$
+Using Poisson distribution, 
+$$\lambda = np = \frac{n(n-1)}{2}\sum_{i=1}^{k}p_i^2$$ 
+Let $X$ be the random variable of the number of 2 trials with the same outcome. The probability that no 2 outcomes are the same is
+\begin{align*}
+    P\{ X=0\} &= e^{-\lambda}\frac{\lambda^0}{0!} \\
+    &=e^{-\lambda} \\
+    &=exp \left ( \frac{n(n-1)}{2}\sum_{i=1}^{k}p_i^2 \right)
+\end{align*}
+
+	
+\end{enumerate}
+
+\end{document}​
